@@ -1,0 +1,47 @@
+name: CI (Verification) Pipeline.
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  frontend-lint:
+    name: Frontend Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+
+      - name: Execute Frontend Linters
+        run: |
+          npm ci
+          npm exec npm-run-all -l -p lint type-check
+
+  frontend-unit-tests:
+    name: Frontend Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+
+      - name: Execute Frontend Unit and Component tests
+        run: |
+          npm ci
+          npm run test:unit
+
+  frontend-e2e-tests:
+    name: Frontend E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+
+      - name: Execute Frontend Unit and Component tests
+        run: |
+          npm ci
+          npm run build-only
+          npm run test:e2e
