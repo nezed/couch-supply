@@ -8,9 +8,12 @@ This is my first-ever VueJS project. Created from scratch.
 >
 > I hope that you'll read this README carefully, as there are a lot of small things to master, but we actually don't need the perfect for this "educational" purpose.
 
+## Live
+[nezed.github.io/couch-supply](https://nezed.github.io/couch-supply)
+
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+On local setup, development and contribution see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 
 ## Left TODOs
