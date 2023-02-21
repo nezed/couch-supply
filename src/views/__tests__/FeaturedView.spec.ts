@@ -60,12 +60,6 @@ describe("get a list of todo items", () => {
 
     const view = mount(FeaturedViewVue, {
       global: {
-        // plugins: [
-        //   createTestingPinia({
-        //     createSpy: vi.fn(),
-        //     stubActions: false,
-        //   }),
-        // ],
         stubs: ["router-link", "router-view"],
       },
     });
@@ -76,24 +70,7 @@ describe("get a list of todo items", () => {
 
     const el = (await view.get('[data-test-id="gallery"]').element) as Element;
 
-    // await new Promise((resolve) => {
-    //   setTimeout(resolve, 100);
-    // });
     expect(el.scrollTop).toBe(0);
     expect(el.scrollLeft).toBe(100);
-    //   await store.fetch(search);
-    //   // Assert
-    //   expect(store.list).not.toBeNull();
-    //   expect((store.list as TvShowItem[])[0].title).toBe("Breaking Bad");
   });
-
-  // it("should fetch with search query", async () => {
-  //   // Arrange
-  //   const search = "drama";
-  //   // Act
-  //   await store.fetch(search);
-  //   // Assert
-  //   expect(store.list).not.toBeNull();
-  //   expect((store.list as TvShowItem[])[0].title).toBe("Drama");
-  // });
 });
